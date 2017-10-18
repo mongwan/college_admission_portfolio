@@ -19,7 +19,7 @@
           // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
           $('html, body').animate({
             scrollTop: $(hash).offset().top
-          }, 800, function(){
+          }, 400, function(){
 
             // Add hash (#) to URL when done scrolling (default click behavior)
             window.location.hash = hash;
@@ -27,7 +27,7 @@
         }
       });
     });
-  </script>
+    </script>
   <style>
     /*프리로드*/
     @import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
@@ -36,7 +36,7 @@
     a {text-decoration: none; color: white;}
     /*헤더*/
     #header_main {height: 30px; margin-left:auto; margin-right:auto;}
-    header {position:fixed; width:100%; height:60px; top:0px; background-color:rgba(0,0,0,0.7); color:#fff;}
+    header {position:fixed; width:100%; height:60px; top:0px; background-color:rgba(0,0,0,0.7); color:#fff; z-index: 1;}
     header h1 {float:left; margin:0px; margin-left: 12px; font-size: 30px; font-weight: normal;}
     header h1 strong {font-size: 36px; font-weight: bold;}
     header ul {float:right; margin: 0px; margin-top: 20px; margin-right:30px; list-style-type:none;}
@@ -52,13 +52,14 @@
     /*메인*/
     article {}
     section {margin-top: -20px; height:800px;}
-    section h2{text-align: center;}
-    section h3{text-align: center;}
+    section h2{text-align: center; font-size:64px;}
+    section h3{text-align: center; font-size:24px;}
+    section p{font-size: 18px; font-weight: 600;}
     section .blank {height :300px;}
-    #main_content1 {background-image: url('https://images.unsplash.com/photo-1503550012877-0b1cde05feb5?dpr=1&auto=format&fit=crop&w=1200'); background-size: cover; }
-    #main_content2 {background-image: url('https://images.unsplash.com/photo-1463704131914-97e5aaa0e339?dpr=1&auto=format&fit=crop&w=1200'); background-size: cover; }
-    #main_content3 {background-image: url('https://images.unsplash.com/photo-1483030096298-4ca126b58199?dpr=1&auto=format&fit=crop&w=1200'); background-size: cover; }
-    #main_content4 {background-image: url('https://images.unsplash.com/photo-1503550012877-0b1cde05feb5?dpr=1&auto=format&fit=crop&w=1200'); background-size: cover; }
+    #main_content1 {background-image: url('https://images.unsplash.com/photo-1503550012877-0b1cde05feb5?dpr=1&auto=format&fit=crop&w=&h=1100');}
+    #main_content2 {background-image: url('https://images.unsplash.com/photo-1463704131914-97e5aaa0e339?dpr=1&auto=format&fit=crop&w=&h=1600');}
+    #main_content3 {background-image: url('https://images.unsplash.com/photo-1483030096298-4ca126b58199?dpr=1&auto=format&fit=crop&w=&h=1600');}
+    #main_content4 {background-image: url('https://images.unsplash.com/photo-1503550012877-0b1cde05feb5?dpr=1&auto=format&fit=crop&w=&h=1600');}
     #article_1 {width: 50%; margin:auto;}
     #article_2 {width: 50%; margin:auto;}
     #article_3 {width: 50%; margin:auto;}
@@ -80,12 +81,12 @@
   </header>
   <article>
     <section id="main_content1">
-      <div class="blank"></div>
       <div id="article_1">
+        <div class="blank"></div>
         <h3>영등포고 유현석</h3>
         <h2>다재다능.</h2>
-        <p>이 지원자는 놀라움으로 가득합니다. 수 년간 다져진 코딩능력,
-          다양한 창작물 제작 경험, 인문학적 소양을 바탕으로 한 공학적 지식,
+        <p>이 지원자는 놀라움으로 가득합니다. 수 년간 다져진 코딩 능력,
+          다양한 창작물 제작 경험, 인문학적 소양을 바탕으로 한 공학적 지식 구비,
           이외에도 수많은 장점을 가진, 새로운 시대를 이끌어 갈 학생. 유현석을 만나보세요.
         </p>
       </div>
@@ -112,4 +113,19 @@
       </div>
     </section>
   </article>
+  <script>
+  var content2top = $('#main_content2').offset().top;
+  var content3top = $('#main_content3').offset().top;
+  var content4top = $('#main_content4').offset().top;
+
+  $(window).scroll(function(e){
+    var scrolled = $(window).scrollTop();
+    var displaymin = scrolled + $(window).height();
+
+    if(scrolled < content2top) {$('#main_content1').css('background-position-y',-(scrolled*0.5)+'px');}
+    if(displaymin > content2top && scrolled < content3top) {$('#main_content2').css('background-position-y',-(scrolled*0.5)+'px');}
+    if(displaymin > content3top && scrolled < content4top) {$('#main_content3').css('background-position-y',(content2top-scrolled)*0.5+'px');}
+    if(displaymin > content4top) {$('#main_content4').css('background-position-y',(content3top-scrolled)*0.5+'px');}
+  });
+  </script>
 </body>
