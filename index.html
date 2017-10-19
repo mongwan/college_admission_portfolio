@@ -43,7 +43,6 @@
       header ul {float:right; width: auto; margin-right:30px; margin-top: 20px;}
       header ul li {float:left; margin-top: 0px; margin-left:50px; font-size: 21px;}
     }
-
     @media (min-width: 1024px) {
       #header_main {width:1024px;}
     }
@@ -67,11 +66,9 @@
       section .textbody {width :80%; margin:auto;}
       section .imgtext {width :40%; ; margin-left: 5%; margin-right:5%;}
     }
-
     @media (min-width: 1024px) {
       section .textbody {width :60%; margin:auto;}
     }
-
   </style>
 </head>
 <body>
@@ -147,6 +144,16 @@
       <div class="textbody">
         <h3>공학 지식</h3>
         <h2>무엇이든 뚝딱.</h2>
+        <p>유현석은 창작에 관한 능력 뿐만 아닌, 깊은 공학적 지식도 가지고 있습니다. 중학생부터 고등학생까지 이어진 방송부 활동에서 엔지니어로서 충실히 일했습니다. 고등학교 3학년인 현재도 몇몇 선생님은 기계 수리를 시키기 위해 저를 부르시고는 합니다.
+        </p>
+        <p>컴퓨터 공학자의 꿈을 꾸고 있었기에, 초등학교 시절 C부터 시작하여 여러 프로그래밍 언어의 기초를  공부했습니다. 또, 플래시에 사용되는 액션스크립트를 익히며 지금도 유용하게 쓰고 있는 스크립트 계열 언어들의 구조를 익혔습니다.
+        </p>
+        <img src="image/capture_8.PNG" alt="capture_8" ></img>
+        <p class="imgtext" style="float:right;">고등학교에 진학해 들은 기술 수업은 진로 설정에 있어서 전환점이 되었습니다. 교내 기술수업 시간에서 아두이노를 활용한 피지컬 컴퓨팅을 배웠는데, 그 과정에서 상당한 흥미와 재미를 느꼈습니다. 이 사진은 3학년 때 탐구과제로 제작한, MIDI 연주가 가능한 플로피디스크 악기입니다. 더 자세한 정보는 <a href=”https://docs.google.com/document/d/13Zg-YR62470ZcqrFkIr-_Y39L63mL0HJU6XrZfqs75E/edit?usp=sharing”>탐구보고서</a>에 나와있습니다.
+        </p>
+        <img src="image/capture_9.PNG" alt="capture_9" ></img>
+        <p class="imgtext" style="float:right;>"이 코드는 지금 보고계신 이 홈페이지를 구성하는 코드입니다. 컴퓨터 프로그램 뿐만 아닌 웹 디자인과  프로그래밍도 능숙히 할 수 있습니다.</p>
+
       </div>
       <div class="blank300"></div>
     <section id="main_content4">
@@ -163,11 +170,9 @@
     var content2_1top = $('#main_content2_1').offset().top;
     var content3top = $('#main_content3').offset().top;
     var content4top = $('#main_content4').offset().top;
-
     $(window).scroll(function(){
       var scrolled = $(window).scrollTop();
       var displaymin = scrolled + $(window).height();
-
       if(scrolled < content2top) {$('#main_content1').css('background-position-y',-(scrolled*0.5)+'px');}
       if(displaymin > content2top && scrolled < content2_1top) {$('#main_content2').css('background-position-y',-(scrolled*0.5)+'px');}
       if(displaymin > content2_1top && scrolled < content3top) {$('#main_content2_1').css('background-position-y',(content2top-scrolled)*0.5+'px');}
