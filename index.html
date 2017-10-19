@@ -56,11 +56,10 @@
     section .blank150 {height :150px;}
     section .blank300 {height :300px;}
     section .imgtext {width :80%; margin-left: 10%; margin-right:10%;}
-    #main_content1 {background-image: url('https://images.unsplash.com/photo-1503550012877-0b1cde05feb5?dpr=1&auto=format&fit=crop&w=&h=1600');}
-    #main_content2 {background-image: url('https://images.unsplash.com/photo-1463704131914-97e5aaa0e339?dpr=1&auto=format&fit=crop&w=&h=3200');}
-    #main_content2_1 {background-image: url('https://images.unsplash.com/photo-1463704131914-97e5aaa0e339?dpr=1&auto=format&fit=crop&w=&h=3200');}
-    #main_content3 {background-image: url('https://images.unsplash.com/photo-1483030096298-4ca126b58199?dpr=1&auto=format&fit=crop&w=&h=1600');}
-    #main_content4 {background-image: url('https://images.unsplash.com/photo-1503550012877-0b1cde05feb5?dpr=1&auto=format&fit=crop&w=&h=1600');}
+    #main_content1 {background-image: url('/image/bg1.jpg');}
+    #main_content2 {background-image: url('/image/bg2.jpg');}
+    #main_content2_1 {background-image: url('/image/bg3.jpg');}
+    #main_content3 {background-image: url('/image/bg4.jpg');}
     @media (min-width: 768px) {
       section img {width :40%; margin-left: 5%; margin-right:5%;}
       section .textbody {width :80%; margin:auto;}
@@ -79,7 +78,6 @@
         <a href="#main_content1"><li>개요</li></a>
         <a href="#main_content2"><li>창작 능력</li></a>
         <a href="#main_content3"><li>공학 지식</li></a>
-        <a href="#main_content4"><li>경험</li></a>
       </ul>
     </div>
   </header>
@@ -119,7 +117,7 @@
     </section>
     <section id="main_content2_1">
       <div class="blank150"></div>
-      <div class="textbody">
+      <div class="textbody" style="color:white;">
         <h3>UCC 제작도 꾸준히</h3>
         <p>중학교에 진학한 이후로는, UCC 제작에 흥미가 생겨 꾸준히 UCC를 만들었습니다. 초기엔 소니 베가스를 사용하였고,
           후에 프리미어와 애프터이펙트를 사용하여 더욱 수준 높은 영상을 만들기 시작했습니다
@@ -151,33 +149,24 @@
         <img src="image/capture_8.PNG" alt="capture_8" ></img>
         <p class="imgtext" style="float:right;">고등학교에 진학해 들은 기술 수업은 진로 설정에 있어서 전환점이 되었습니다. 교내 기술수업 시간에서 아두이노를 활용한 피지컬 컴퓨팅을 배웠는데, 그 과정에서 상당한 흥미와 재미를 느꼈습니다. 이 사진은 3학년 때 탐구과제로 제작한, MIDI 연주가 가능한 플로피디스크 악기입니다. 더 자세한 정보는 <a href=”https://docs.google.com/document/d/13Zg-YR62470ZcqrFkIr-_Y39L63mL0HJU6XrZfqs75E/edit?usp=sharing”>탐구보고서</a>에 나와있습니다.
         </p>
+        <div class="blank150"></div>
         <img src="image/capture_9.PNG" alt="capture_9" ></img>
-        <p class="imgtext" style="float:right;>"이 코드는 지금 보고계신 이 홈페이지를 구성하는 코드입니다. 컴퓨터 프로그램 뿐만 아닌 웹 디자인과  프로그래밍도 능숙히 할 수 있습니다.</p>
-
+        <p class="imgtext" style="float:right;">이 코드는 지금 보고계신 이 홈페이지를 구성하는 코드입니다. 컴퓨터 프로그램 뿐만 아닌 웹 디자인과  프로그래밍도 능숙히 할 수 있습니다.</p>
+        </p>
       </div>
       <div class="blank300"></div>
-    <section id="main_content4">
-      <div class="blank300"></div>
-      <div class="textbody">
-        <h3>경험</h3>
-        <h2>무엇과도 바꿀 수 없는 소중한 경험들</h2>
-      </div>
-      <div class="blank300"></div>
-    </section>
   </article>
   <script>
     var content2top = $('#main_content2').offset().top;
     var content2_1top = $('#main_content2_1').offset().top;
     var content3top = $('#main_content3').offset().top;
-    var content4top = $('#main_content4').offset().top;
     $(window).scroll(function(){
       var scrolled = $(window).scrollTop();
       var displaymin = scrolled + $(window).height();
       if(scrolled < content2top) {$('#main_content1').css('background-position-y',-(scrolled*0.5)+'px');}
       if(displaymin > content2top && scrolled < content2_1top) {$('#main_content2').css('background-position-y',-(scrolled*0.5)+'px');}
       if(displaymin > content2_1top && scrolled < content3top) {$('#main_content2_1').css('background-position-y',(content2top-scrolled)*0.5+'px');}
-      if(displaymin > content3top && scrolled < content4top) {$('#main_content3').css('background-position-y',(content2_1top-scrolled)*0.5+'px');}
-      if(displaymin > content4top) {$('#main_content4').css('background-position-y',(content3top-scrolled)*0.5+'px');}
+      if(displaymin > content3top) {$('#main_content3').css('background-position-y',(content2_1top-scrolled)*0.5+'px');}
     });
   </script>
 </body>
